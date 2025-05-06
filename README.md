@@ -1,3 +1,5 @@
+## This is a fork of [0x7375646F](https://github.com/0x7375646F)'s [Linuwu Sense](https://github.com/0x7375646F/Linuwu-Sense) repository for personal experimentation, please check out the original.
+
 # Unofficial Linux Kernel Module for Acer Gaming RGB Keyboard Backlight and Turbo Mode (Acer Predator , Nitro)
 The code base is still in its early stages, as I’ve just started working on developing this kernel module. It's a bit messy at the moment, but I’m hopeful that, with your help, we can collaborate to improve its structure and make it more organized over time.
 
