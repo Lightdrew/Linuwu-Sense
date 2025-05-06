@@ -539,6 +539,15 @@ enum acer_wmi_predator_v4_oc {
  static const struct dmi_system_id acer_quirks[] __initconst = {
      {
          .callback = dmi_matched,
+         .ident = "Acer Nitro AN16-51",
+         .matches = {
+             DMI_MATCH(DMI_SYS_VENDOR, "Acer"),
+             DMI_MATCH(DMI_PRODUCT_NAME, "Nitro AN16-51"),
+         },
+         .driver_data = &quirk_acer_predator_phn16_72,
+     },
+     {
+         .callback = dmi_matched,
          .ident = "Acer Nitro ANV15-41",
          .matches = {
              DMI_MATCH(DMI_SYS_VENDOR, "Acer"),
@@ -3480,7 +3489,7 @@ enum acer_wmi_predator_v4_oc {
      NULL
  };
  
- static struct attribute_group preadtor_sense_attr_group = {
+ static struct attribute_group predator_sense_attr_group = {
      .name = "predator_sense", .attrs = predator_sense_attrs
  };
  
@@ -3969,7 +3978,7 @@ enum acer_wmi_predator_v4_oc {
      }
  
      if (has_cap(ACER_CAP_PREDATOR_SENSE)){
-         err = sysfs_create_group(&device->dev.kobj, &preadtor_sense_attr_group);
+         err = sysfs_create_group(&device->dev.kobj, &predator_sense_attr_group);
          if (err)
              goto error_predator_sense;
          acer_predator_state_load();
@@ -4023,7 +4032,7 @@ enum acer_wmi_predator_v4_oc {
      if (has_cap(ACER_CAP_BRIGHTNESS))
          acer_backlight_exit();
      if (has_cap(ACER_CAP_PREDATOR_SENSE)){
-         sysfs_remove_group(&device->dev.kobj, &preadtor_sense_attr_group);
+         sysfs_remove_group(&device->dev.kobj, &predator_sense_attr_group);
          acer_predator_state_save();
      }
      if(quirks->four_zone_kb){
