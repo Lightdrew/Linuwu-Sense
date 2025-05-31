@@ -79,3 +79,9 @@ install: all
 	fi
 	@echo "Module $(MODNAME) installed and configured to load at boot."
 
+reinstall:
+	sudo modprobe -r $(MODNAME);
+	sudo modprobe acer-wmi;
+	make install;
+	@echo "Module $(MODNAME) reinstalled."
+
